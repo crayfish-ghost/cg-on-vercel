@@ -1,0 +1,34 @@
+title: ザリガニ日記
+description: 怪談・ホラー小説・その他を創作しています
+author: 淀川 桟
+copyright: ザリガニ日記
+
+# Author profile
+author_avatar: /assets/images/avatar.webp
+author_bio: 怪談・ホラー小説・その他を創作しています
+author_links:
+  - service: "X (Twitter)"
+    handle: "@CrayfishGhost"
+    url: "https://x.com/CrayfishGhost"
+  - service: "Nostter"
+    handle: "yodogawa"
+    url: "https://nostter.app/yodogawa@crayfish-ghost.github.io"
+  - service: "Bluesky"
+    handle: "@yodogawa.bsky.social"
+    url: "https://bsky.app/profile/yodogawa.bsky.social"
+
+# Build settings
+markdown: kramdown
+permalink: /posts/:slug/
+paginate: 10
+paginate_path: "/page/:num/"
+
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - README.md

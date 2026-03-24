@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+<div class="story-page">
+  <a class="back-btn" href="{{ '/' | relative_url }}">← 一覧へ戻る</a>
+
+  <div class="story-header">
+    <div class="story-title">{{ page.title }}</div>
+    <div class="story-author">{{ page.date | date: "%Y年%-m月%-d日" }}</div>
+  </div>
+
+  <div class="vertical-columns">
+    {{ content }}
+  </div>
+
+  <footer>
+    <p>© {{ site.copyright }}</p>
+    <nav class="post-nav">
+      {% if page.previous.url %}
+        <a href="{{ page.previous.url | relative_url }}">← 前の作品</a>
+      {% else %}
+        <span class="disabled">← 前の作品</span>
+      {% endif %}
+      {% if page.next.url %}
+        <a href="{{ page.next.url | relative_url }}">次の作品 →</a>
+      {% else %}
+        <span class="disabled">次の作品 →</span>
+      {% endif %}
+    </nav>
+  </footer>
+</div>

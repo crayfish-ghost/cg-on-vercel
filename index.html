@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<div class="works-list">
+
+  {% assign posts = paginator.posts | default: site.posts %}
+  {% for post in posts %}
+    {% assign excerpt_text = post.content | strip_html | truncate: 80, "" %}
+    <a class="work-item" href="{{ post.url | relative_url }}">
+      <div>
+        <div class="work-title">{{ post.title }}</div>
+        <div class="work-meta">
+          <span>{{ post.date | date: "%Y年%-m月%-d日" }}</span>
+        </div>
+        <div class="work-excerpt">
+          {{ excerpt_text }}
+        </div>
+      </div>
+      <div class="work-number">{{ forloop.index | plus: paginator.previous_page_number | default: forloop.index | prepend: "00" | slice: -3, 3 }}</div>
+    </a>
+  {% endfor %}
+</div>
+
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}" class="pag-arrow">←</a>
+  {% else %}
+    <span class="pag-arrow disabled">←</span>
+  {% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <span class="current">{{ page }}</span>
+    {% elsif page == 1 %}
+      <a href="{{ '/' | relative_url }}">{{ page }}</a>
+    {% else %}
+      <a href="{{ site.paginate_path | replace: ':num', page | relative_url }}">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}" class="pag-arrow">→</a>
+  {% else %}
+    <span class="pag-arrow disabled">→</span>
+  {% endif %}
+</div>
+{% endif %}
+
+<footer>
+  <p>© {{ site.copyright }}</p>
+</footer>

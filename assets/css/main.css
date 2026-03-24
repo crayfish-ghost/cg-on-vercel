@@ -1,0 +1,488 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #d8d8d8;
+  --text: #1a1a1a;
+  --text-light: #484848;
+  --text-faint: #808080;
+  --border: #b8b8b8;
+  --accent: #2a2a2a;
+}
+
+html.dark {
+  --bg: #282828;
+  --text: #d0d0d0;
+  --text-light: #989898;
+  --text-faint: #585858;
+  --border: #424242;
+  --accent: #c0c0c0;
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Shippori Mincho', serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ヘッダー */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 40px;
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.site-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  color: var(--text);
+}
+
+nav {
+  margin-left: auto;
+  display: flex;
+  gap: 32px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+
+nav a:hover {
+  color: var(--text);
+}
+
+/* メインレイアウト */
+main {
+  padding-top: 60px;
+}
+
+/* 作品一覧 */
+.works-list {
+  padding: 60px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--text-faint);
+  margin-bottom: 40px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.work-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s;
+}
+
+.work-item:hover {
+  opacity: 0.65;
+}
+
+.work-title {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.work-meta {
+  font-size: 12px;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+  display: flex;
+  gap: 20px;
+}
+
+.work-excerpt {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.9;
+  margin-top: 12px;
+  letter-spacing: 0.04em;
+  max-width: 540px;
+}
+
+.work-number {
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 0.08em;
+}
+
+/* 作品本文ページ */
+.story-page {
+  min-height: 100vh;
+  padding-top: 60px;
+}
+
+.story-header {
+  padding: 60px 40px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.3s;
+}
+
+.story-title {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+
+.story-author {
+  font-size: 13px;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+}
+
+/* 縦書き本文 */
+.vertical-columns {
+  padding: 60px 40px 120px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.vertical-columns p {
+  font-size: 17px;
+  line-height: 2.2;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  margin-bottom: 2em;
+}
+
+/* 戻るボタン */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-faint);
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  background: none;
+  border: none;
+  font-family: inherit;
+  margin: 20px 40px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back-btn:hover {
+  color: var(--text);
+}
+
+/* About ページ */
+.about-page {
+  padding-top: 60px;
+  min-height: 100vh;
+}
+
+.about-container {
+  padding: 60px 40px 60px;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.about-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.about-avatar svg {
+  display: block;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.about-avatar-note {
+  font-size: 10px;
+  color: var(--text-faint);
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.about-body {
+  flex: 1;
+}
+
+.about-name {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+.about-bio {
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: 0.05em;
+  color: var(--text-light);
+  margin-bottom: 32px;
+}
+
+.about-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.about-link {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s;
+}
+
+.about-links li:first-child .about-link {
+  border-top: 1px solid var(--border);
+}
+
+.about-link:hover {
+  opacity: 0.6;
+}
+
+.about-link-service {
+  font-size: 12px;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+  min-width: 80px;
+}
+
+.about-link-handle {
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: var(--text);
+}
+
+/* フッター */
+footer {
+  padding: 40px;
+  border-top: 1px solid var(--border);
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: border-color 0.3s;
+}
+
+footer p {
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+}
+
+.post-nav {
+  display: flex;
+  gap: 32px;
+  margin-left: auto;
+}
+
+.post-nav a,
+.post-nav .disabled {
+  font-size: 12px;
+  color: var(--text-faint);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+}
+
+.post-nav a:hover {
+  color: var(--text);
+}
+
+.post-nav .disabled {
+  opacity: 0.35;
+}
+
+/* テーマ切り替えボタン */
+.theme-toggle {
+  background: var(--accent);
+  border: 1px solid var(--border);
+  color: var(--bg);
+  font-family: 'Shippori Mincho', serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+  margin-left: 16px;
+}
+
+html.dark .theme-toggle {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.theme-toggle:hover {
+  opacity: 0.8;
+}
+
+/* ページネーション */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 48px 40px 0;
+}
+
+.pagination a,
+.pagination span {
+  font-size: 13px;
+  color: var(--text-faint);
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  padding: 6px 10px;
+  transition: color 0.2s;
+}
+
+.pagination a:hover {
+  color: var(--text);
+}
+
+.pagination .current {
+  color: var(--text);
+  border-bottom: 1px solid var(--text);
+}
+
+.pagination .pag-arrow {
+  font-size: 14px;
+}
+
+.pagination .pag-arrow.disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 600px) {
+  header {
+    padding: 14px 20px;
+  }
+
+  nav a {
+    font-size: 11px;
+  }
+
+  main {
+    padding-top: 52px;
+  }
+
+  .works-list {
+    padding: 32px 20px 40px;
+  }
+
+  .work-title {
+    font-size: 18px;
+  }
+
+  .work-excerpt {
+    font-size: 12px;
+    max-width: 100%;
+  }
+
+  .work-item {
+    padding: 22px 0;
+    gap: 12px;
+  }
+
+  .story-header {
+    padding: 40px 20px 28px;
+  }
+
+  .story-title {
+    font-size: 24px;
+  }
+
+  .back-btn {
+    margin: 16px 20px;
+  }
+
+  .vertical-columns {
+    padding: 36px 20px 80px;
+  }
+
+  .vertical-columns p {
+    font-size: 16px;
+    line-height: 2.0;
+  }
+
+  footer {
+    padding: 28px 20px;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .pagination {
+    padding: 36px 20px 0;
+    gap: 2px;
+  }
+
+  .pagination a, .pagination span {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px 60px;
+    gap: 28px;
+  }
+
+  .about-name {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .about-bio {
+    font-size: 13px;
+  }
+
+  .about-link-service {
+    min-width: 70px;
+  }
+}
